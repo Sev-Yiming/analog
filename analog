@@ -1,0 +1,29 @@
+int ledPin01 = 12;
+int ledPin02 = 13;
+
+void setup ()
+{
+  Serial.begin(9600);
+  pinMode(ledPin01,OUTPUT);
+  pinMode(ledPin02,OUTPUT);
+
+}
+void loop()
+{
+  int photoresistor01 = analogRead(A0);
+  int photoresistor02 = analogRead(A1);  
+  Serial.println(photoresistor01);
+  Serial.println(photoresistor02);
+  if (photoresistor01 >= photoresistor02 )                 
+  {
+    digitalWrite(ledPin01,HIGH);
+    delay(1000);
+    digitalWrite(ledPin01,LOW);
+  }
+  else
+  {
+    digitalWrite(ledPin02,HIGH);
+    delay(1000);
+    digitalWrite(ledPin02,LOW);
+  }
+}
